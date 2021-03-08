@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { Provider } from 'react-redux';
+import { AppRouter } from './routers/AppRouter';
+import { store } from './store/store';
 
 export const GifApp = () => {
     return (
-        <div>
-            <h1>Hola Escalab</h1>
-        </div>
+        <Provider store={ store }>            
+            <AppRouter />
+        </Provider>
     )
 }
