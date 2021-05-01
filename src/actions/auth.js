@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2'
 import { authTypes } from "../types/authTypes";
 import { uiFinishLoading, uiStartLoading } from "./ui";
 import { firebase, googleAuthProvider } from "../firebase/firebase-config";
@@ -14,7 +15,14 @@ export const startLoginEmailPassword = (email, password) => {
                 dispatch( uiFinishLoading() );
 
             }).catch( e => {
-                console.error(e)
+                // console.error(e)
+
+                Swal.fire({
+                    title: 'Error!',
+                    text: e,
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                  })
 
                 dispatch( uiFinishLoading() );
             })
